@@ -1,0 +1,14 @@
+{
+  "apps": [
+    {
+      "name": "peplink-bea",
+      "script": "yarn",
+      "args": "start:dev",
+      "env": {
+        "NODE_ENV": "stag"
+      },
+      "exec_interpreter": "node",
+      "exec_mode": "fork"
+    }
+  ]
+}
