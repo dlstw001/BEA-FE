@@ -43,15 +43,25 @@ export default function SystemLog() {
   }, [page]);
 
   const columns = [
-    { field: "user", headerName: "User", flex: 0.2, sortable: false },
+    { field: "user", headerName: "User", flex: 0.15, sortable: false },
     { field: "method", headerName: "Method", flex: 0.1, sortable: false },
+    {
+      field: "path",
+      headerName: "Path",
+      flex: 0.3,
+      sortable: false,
+    },
     {
       field: "from",
       headerName: "From",
-      flex: 0.4,
+      flex: 0.1,
       renderCell: (params) => {
         let data = JSON.stringify(params.row.from);
-        data = data?.replace("{", "").replace("}", "").split(",").map(item => <div key={Math.random()}>{item}</div>);
+        data = data
+          ?.replace("{", "")
+          .replace("}", "")
+          .split(",")
+          .map((item) => <div key={Math.random()}>{item}</div>);
         return <AlertDialog buttonText={"Details"} content={data || "None"} />;
       },
       sortable: false,
@@ -59,16 +69,20 @@ export default function SystemLog() {
     {
       field: "to",
       headerName: "To",
-      flex: 0.4,
+      flex: 0.1,
       renderCell: (params) => {
         let data = JSON.stringify(params.row.to);
-        data = data?.replace("{", "").replace("}", "").split(",").map(item => <div key={Math.random()}>{item}</div>);
+        data = data
+          ?.replace("{", "")
+          .replace("}", "")
+          .split(",")
+          .map((item) => <div key={Math.random()}>{item}</div>);
         return <AlertDialog buttonText={"Details"} content={data || "None"} />;
       },
       sortable: false,
     },
     { field: "status", headerName: "Status", flex: 0.1, sortable: false },
-    { field: "createdAt", headerName: "Date", flex: 0.2, sortable: false },
+    { field: "createdAt", headerName: "Date", flex: 0.15, sortable: false },
   ];
 
   return (

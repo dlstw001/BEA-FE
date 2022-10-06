@@ -48,9 +48,7 @@ const secretCounter = () => {
     const startTime = Date.now() / 1000;
     setSecretTime(startTime);
   }
-  console.log(`st: ${secretTime}`);
   let currentTime = Date.now() / 1000;
-  console.log(Math.floor(currentTime - secretTime));
   if (secretTime != 0) {
     if (Math.floor(currentTime - secretTime) <= 1) {
       if (count > 10 && image == "/navbarLogo.svg") {

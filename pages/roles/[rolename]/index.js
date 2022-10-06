@@ -228,11 +228,16 @@ export default function RoleDetails() {
 	//Update Action Read/Write
 	const handleUpdateRoleAction = async (reqBody) => {
 		try {
-			const res = await http.put(`/role/update/action/readwrite?roleId=${roleId}`, reqBody);
+			const res = await http.put(
+				`/role/update/action/readwrite?roleId=${roleId}`,
+				reqBody,
+			);
 			if (res.statusCode === 200) {
 				setAddNotification(false);
 				setRemoveNotification(false);
-				setUpdateNotification(false);
+				setUpdateNotification(true);
+			} else {
+				throw new Error();
 			}
 		} catch (e) {
 			alert('Error, please try again');

@@ -352,7 +352,9 @@ export default function SystemDashboard() {
 
   //Update Action
   const processActionRowUpdate = async (newRow) => {
-    console.log(newRow);
+    if (!newRow.name.startsWith(system)) {
+      newRow.name = `${system}_${newRow.name}`;
+    }
     const id = newRow.id;
     setActionId(id);
     const reqBody = { system: system, name: newRow.name, desc: newRow.desc };
